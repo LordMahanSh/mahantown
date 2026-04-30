@@ -1,8 +1,38 @@
 {
+  "name": "my-sni-relay-2026",
   "version": 2,
-  "name": "sni-xhttp",
+  "functions": {
+    "api/index.js": {
+      "runtime": "edge",
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
   ],
-  "trailingSlash": false
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store, private"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "TARGET_DOMAIN": "@target_domain"
+  }
 }
