@@ -1,7 +1,18 @@
 {
-  "name": "sni-xhttp",
-  "version": "1.0.0",
-  "description": "Serverless XHTTP relay for Xray/V2Ray on Vercel (Edge Runtime)",
+  "name": "my-sni-relay-2026",
+  "version": "2.0.0",
+  "description": "Personal XHTTP relay for Vercel Edge",
+  "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=18.x"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod",
+    "logs": "vercel logs"
+  },
+  "keywords": ["xhttp", "vless", "relay", "vercel"],
+  "author": "Your Name",
   "license": "MIT"
 }
